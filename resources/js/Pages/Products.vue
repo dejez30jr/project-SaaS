@@ -1,5 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3'
 
 defineProps({
     products: Array
@@ -28,9 +29,17 @@ const deleteProduct = (id) => {
     <div class="max-w-5xl mx-auto">
 
         <!-- Title -->
-        <h1 class="text-3xl font-bold mb-6 text-gray-800">
-            Product Management
-        </h1>
+        <div class="mb-6 flex items-center justify-between">
+            <h1 class="text-3xl font-bold text-gray-800">Product Management</h1>
+             <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition">
+                <Link 
+                    :href="route('dashboard')" 
+                    class="text-blue-500 hover:text-blue-700 transition"
+                >
+                    Back to Dashboard
+                </Link>  
+             </button>
+        </div>
 
         <!-- Form Card -->
         <div class="bg-white shadow-md rounded-xl p-6 mb-8">

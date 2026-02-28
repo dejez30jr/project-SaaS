@@ -26,10 +26,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/products-page', function () {
-    return Inertia::render('Products');
-})->middleware(['auth']);
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
