@@ -1,4 +1,4 @@
-# 🛒 Multi-Tenant eCommerce Platform  
+  # 🛒 Multi-Tenant eCommerce Platform  
 Laravel 11 + Vue 3 + Inertia.js + Multi-Database Tenancy
 
 ---
@@ -120,6 +120,20 @@ Tenant::create([
 ]);
 ```
 
+## Create tenant breeze form register
+
+```bash
+php artisan serve
+npm run dev
+```
+
+then acces:
+
+```
+https:\\localhost:8000/register
+```
+
+
 ---
 
 ## Access Tenant
@@ -127,7 +141,7 @@ Tenant::create([
 Add this to your hosts file:
 
 ```
-127.0.0.1 store1.localhost
+store1.localhost:8000
 ```
 
 Then access:
