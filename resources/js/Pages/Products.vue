@@ -44,27 +44,27 @@ const deleteProduct = (id) => {
         <!-- Form Card -->
         <div class="bg-white shadow-md rounded-xl p-6 mb-8">
             <h2 class="text-lg font-semibold mb-4 text-gray-700">
-                Tambah Produk
+                Add Product
             </h2>
 
             <form @submit.prevent="submit" class="grid md:grid-cols-4 gap-4">
 
                 <input 
                     v-model="form.name" 
-                    placeholder="Nama Produk"
+                    placeholder="Name Product"
                     class="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
 
                 <input 
                     v-model="form.price" 
-                    placeholder="Harga"
+                    placeholder="Price"
                     type="number"
                     class="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
 
                 <input 
                     v-model="form.category" 
-                    placeholder="Kategori"
+                    placeholder="Category"
                     class="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
 
@@ -73,7 +73,7 @@ const deleteProduct = (id) => {
                     class="bg-blue-500 hover:bg-blue-600 transition text-white font-semibold rounded-lg px-4 py-2 disabled:opacity-50"
                     :disabled="form.processing"
                 >
-                    {{ form.processing ? 'Menyimpan...' : 'Tambah' }}
+                    {{ form.processing ? 'Saving...' : 'Add' }}
                 </button>
 
             </form>
@@ -82,21 +82,21 @@ const deleteProduct = (id) => {
         <!-- Product List -->
         <div class="bg-white shadow-md rounded-xl p-6">
             <h2 class="text-lg font-semibold mb-4 text-gray-700">
-                Daftar Produk
+                Product List
             </h2>
 
             <div v-if="products.length === 0" class="text-gray-500 text-center py-6">
-                Belum ada produk
+                No products available
             </div>
 
             <div v-else class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="bg-gray-50 border-b">
-                            <th class="p-3">Nama</th>
-                            <th class="p-3">Harga</th>
-                            <th class="p-3">Kategori</th>
-                            <th class="p-3 text-center">Aksi</th>
+                            <th class="p-3">Name</th>
+                            <th class="p-3">Price</th>
+                            <th class="p-3">Category</th>
+                            <th class="p-3 text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
