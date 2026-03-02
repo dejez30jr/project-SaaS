@@ -2,20 +2,35 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
+
+/*
+|--------------------------------------------------------------------------
+| Tenant Routes
+|--------------------------------------------------------------------------
+|
+| Here you can register the tenant routes for your application.
+| These routes are loaded by the TenantRouteServiceProvider.
+|
+| Feel free to customize them however you want. Good luck!
+|
+*/
+
+Route::middleware([
+    'auth',
+])->group(function () {
+    Route::resource('/products', ProductController::class);
+});
 
 Route::middleware([
     'web',
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
-    'auth',
 ])->group(function () {
-
     Route::get('/', function () {
-        return 'Tenant ID: ' . tenant('id') . 
-               ' | Domain: ' . tenant('domain');
+        return 'This is your multi-tenant application. The id of the current tenant is' . tenant('id') . ' and the domain is ' . tenant('domain') . '. To access the central application, go to ' . config('app.url') . ':8000/login';
     });
-
 });
